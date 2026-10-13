@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khazana Jewellery · Bhimavaram</title>
+<meta name="description" content="Khazana Jewellery, Somavaram, Bhimavaram. Share your experience, follow us and find us on the map.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#981115;
+  --crimson-dark:#6e0a0e;
+  --cream:#FFFAEF;
+  --gold:#C9A24B;
+  --gold-soft:#E8D5A0;
+  --ink:#3a2a2a;
+  --muted:#7a6a68;
+  --card:#ffffff;
+  --line:#ecdfc3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);
+  line-height:1.6;
+  background-image:radial-gradient(circle at 1px 1px, rgba(201,162,75,.16) 1px, transparent 0);
+  background-size:22px 22px;
+}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 40px}
+
+/* hero */
+.hero{
+  background:linear-gradient(160deg,var(--crimson) 0%,var(--crimson-dark) 100%);
+  color:var(--cream);text-align:center;
+  padding:44px 20px 64px;position:relative;overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+  border:1px solid rgba(232,213,160,.25);
+}
+.hero::before{top:-120px;left:-90px}
+.hero::after{bottom:-150px;right:-100px;width:320px;height:320px}
+.hero > *{position:relative;z-index:1}
+.est{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft)}
+.logo{
+  font-family:"Cormorant Garamond",serif;font-weight:700;
+  font-size:clamp(44px,13vw,64px);letter-spacing:.06em;line-height:1.05;margin:8px 0 2px;
+  color:var(--cream);
+}
+.logo span{display:block;font-size:.36em;letter-spacing:.5em;color:var(--gold);font-weight:600;margin-top:4px}
+.orn{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px auto 12px;color:var(--gold)}
+.orn i{display:block;height:1px;width:56px;background:var(--gold)}
+.orn b{font-size:14px;transform:rotate(45deg);display:block;width:9px;height:9px;border:1px solid var(--gold)}
+.tag{font-family:"Cormorant Garamond",serif;font-size:21px;font-style:italic;color:var(--gold-soft)}
+.rating{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  background:rgba(255,250,239,.1);border:1px solid rgba(232,213,160,.4);
+  padding:6px 14px;border-radius:999px;font-size:13px;
+}
+.rating .stars{color:var(--gold);letter-spacing:2px}
+
+/* cards */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px 20px;margin-top:18px;box-shadow:0 6px 20px rgba(152,17,21,.06);
+}
+.pull{margin-top:-36px;position:relative;z-index:2}
+h2{
+  font-family:"Cormorant Garamond",serif;font-weight:700;font-size:26px;
+  color:var(--crimson);line-height:1.2;margin-bottom:6px;
+}
+.sub{color:var(--muted);font-size:14px;margin-bottom:14px}
+.about p{font-size:15px;margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pill{
+  font-size:12.5px;padding:6px 12px;border-radius:999px;
+  background:var(--cream);border:1px solid var(--gold-soft);color:var(--crimson-dark);font-weight:500;
+}
+
+/* review */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 14px}
+.chip{
+  font:inherit;font-size:13px;padding:7px 13px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--gold-soft);background:#fff;color:var(--ink);
+  transition:all .15s;
+}
+.chip[aria-pressed="true"]{background:var(--crimson);color:var(--cream);border-color:var(--crimson)}
+textarea{
+  width:100%;min-height:150px;resize:vertical;font:inherit;font-size:15px;color:var(--ink);
+  padding:14px;border:1px solid var(--gold-soft);border-radius:12px;background:var(--cream);
+}
+textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.row{display:flex;gap:10px;margin-top:12px}
+.btn{
+  font:inherit;font-weight:600;font-size:15px;cursor:pointer;border-radius:10px;
+  padding:14px 16px;border:1px solid var(--crimson);text-align:center;
+}
+.btn.ghost{background:#fff;color:var(--crimson);flex:0 0 auto}
+.btn.main{
+  background:linear-gradient(180deg,var(--crimson),var(--crimson-dark));color:var(--cream);
+  flex:1;box-shadow:0 6px 14px rgba(152,17,21,.25);
+}
+.btn:active{transform:translateY(1px)}
+.note{font-size:12.5px;color:var(--muted);margin-top:12px}
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;
+  background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;
+  transition:all .25s;pointer-events:none;max-width:90vw;text-align:center;z-index:10;
+}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+/* social */
+.social{display:flex;justify-content:center;gap:16px;margin-top:6px}
+.social a{
+  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  background:var(--crimson);color:var(--cream);border:2px solid var(--gold);
+  transition:transform .15s;
+}
+.social a:hover{transform:translateY(-3px)}
+.social svg{width:26px;height:26px;fill:currentColor}
+.social-label{text-align:center;font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.05em}
+
+/* map */
+.map{
+  display:block;text-decoration:none;color:inherit;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);
+}
+.map-art{
+  height:150px;position:relative;
+  background:
+    linear-gradient(90deg,transparent 48%,#e4d3a6 48% 52%,transparent 52%),
+    linear-gradient(0deg,transparent 60%,#e4d3a6 60% 64%,transparent 64%),
+    linear-gradient(35deg,transparent 40%,#efe2ba 40% 43%,transparent 43%),
+    #f6ecd0;
+}
+.pin{
+  position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);
+  width:34px;height:34px;background:var(--crimson);border-radius:50% 50% 50% 0;
+  rotate:-45deg;border:2px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+.pin::after{content:"";position:absolute;inset:9px;background:#fff;border-radius:50%}
+.map-body{padding:14px 16px;background:#fff}
+.map-body strong{display:block;font-size:15px}
+.map-body span{font-size:13.5px;color:var(--muted);display:block;margin-top:2px}
+.map-cta{
+  display:inline-block;margin-top:10px;font-weight:600;font-size:14px;color:var(--crimson);
+}
+footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px;padding:0 10px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="est">Gold &amp; Diamond Jewellery</div>
+  <div class="logo">KHAZANA<span>JEWELLERY</span></div>
+  <div class="orn"><i></i><b></b><i></i></div>
+  <div class="tag">Bhimavaram · Somavaram</div>
+  <div class="rating"><span class="stars">★★★★★</span><span>5.0 on Justdial · 5,020 ratings</span></div>
+</header>
+
+<main class="wrap">
+
+  <section class="card pull about">
+    <h2>About our showroom</h2>
+    <p>Khazana Jewellery has been part of Bhimavaram since 2008, with a brand story of South Indian craftsmanship going back to 1990. Our Somavaram showroom carries gold and diamond jewellery for weddings, festivals and everyday wear: necklaces, chains, bangles, bracelets, earrings, rings, pendants and mangalsutras.</p>
+    <p><b>Door No 22-7-9, Near Sundaybazar, Mavullamma Temple Street, Somavaram, Bhimavaram, Andhra Pradesh 534201</b></p>
+    <div class="pills">
+      <span class="pill">BIS hallmarked gold</span>
+      <span class="pill">Certified diamonds</span>
+      <span class="pill">Lifetime exchange &amp; buyback</span>
+      <span class="pill">Transparent pricing</span>
+      <span class="pill">Gold saving plans</span>
+      <span class="pill">Complimentary jewellery care</span>
+    </div>
+  </section>
+
+  <section class="card" id="review">
+    <h2>Share your Khazana experience</h2>
+    <p class="sub">Tap what you liked, then edit the draft into your own words. Your review helps other families in Bhimavaram choose well.</p>
+
+    <div class="chips" id="chips" role="group" aria-label="What did you like?">
+      <button class="chip" aria-pressed="true"  data-k="designs">Beautiful designs</button>
+      <button class="chip" aria-pressed="true"  data-k="staff">Friendly staff</button>
+      <button class="chip" aria-pressed="false" data-k="purity">Hallmarked purity</button>
+      <button class="chip" aria-pressed="false" data-k="billing">Clear billing</button>
+      <button class="chip" aria-pressed="false" data-k="exchange">Lifetime exchange</button>
+      <button class="chip" aria-pressed="false" data-k="wedding">Wedding shopping</button>
+      <button class="chip" aria-pressed="false" data-k="diamond">Diamond collection</button>
+    </div>
+
+    <label for="reviewText" class="sub" style="display:block;margin-bottom:6px">Your review (edit freely)</label>
+    <textarea id="reviewText" aria-describedby="hint"></textarea>
+
+    <div class="row">
+      <button class="btn ghost" id="again" type="button">↻ New draft</button>
+      <button class="btn main" id="copyGo" type="button">Copy &amp; open Google reviews</button>
+    </div>
+    <p class="note" id="hint">After Google opens, choose your star rating, paste the review and press Post. Please keep it true to your own visit.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="text-align:center">Follow Khazana</h2>
+    <div class="social">
+      <a href="https://www.instagram.com/khazanajewellery/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/KhazanaJewellery/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.500 21v-8h2.700l.4-3.200h-3.100V7.800c0-.9.300-1.500 1.600-1.500h1.700V3.400c-.3 0-1.300-.1-2.400-.1-2.400 0-4.100 1.500-4.100 4.200v2.300H7.600V13h2.700v8h3.200z"/></svg>
+      </a>
+      <a href="https://www.khazanajewellery.com/" target="_blank" rel="noopener" aria-label="Official website">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.900 9h-3a15.600 15.600 0 0 0-1.200-5.500A8 8 0 0 1 18.900 11zM12 4c.8 1 1.600 3.100 1.900 7h-3.800C10.400 7.100 11.200 5 12 4zM4.600 13h3a15.600 15.600 0 0 0 1.200 5.500A8 8 0 0 1 4.600 13zm3-2h-3a8 8 0 0 1 4.200-5.500A15.600 15.600 0 0 0 7.600 11zM12 20c-.8-1-1.600-3.100-1.900-7h3.800c-.3 3.900-1.100 6-1.900 7zm2.200-.5a15.600 15.600 0 0 0 1.200-5.500h3a8 8 0 0 1-4.200 5.500z"/></svg>
+      </a>
+    </div>
+    <div class="social-label">Instagram · Facebook · Website</div>
+  </section>
+
+  <section class="card">
+    <h2>Visit us</h2>
+    <a class="map" id="mapLink" href="#" target="_blank" rel="noopener">
+      <div class="map-art"><div class="pin"></div></div>
+      <div class="map-body">
+        <strong>Khazana Jewellery, Somavaram</strong>
+        <span>Near Sundaybazar, Mavullamma Temple Street, Bhimavaram</span>
+        <span class="map-cta">Get directions on Google Maps →</span>
+      </div>
+    </a>
+  </section>
+
+  <footer>Concept demo of a customer review page. Not an official Khazana Jewellery website. Shop details from public listings.</footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== EDIT THESE TWO LINKS FOR THE REAL SHOP ===== */
+// Best: the shop's own "write a review" link:
+//   https://search.google.com/local/writereview?placeid=PLACE_ID
+// (find the Place ID at developers.google.com/maps/documentation/places/web-service/place-id)
+const REVIEW_URL = "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Khazana Jewellery Somavaram Bhimavaram");
+const DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=" +
+  encodeURIComponent("Khazana Jewellery, Door No 22-7-9, Mavullamma Temple Street, Somavaram, Bhimavaram 534201");
+/* ================================================== */
+
+document.getElementById("mapLink").href = DIRECTIONS_URL;
+
+const openers = [
+  "Visited Khazana Jewellery in Bhimavaram recently.",
+  "Had a really good experience at Khazana Jewellery, Somavaram.",
+  "Went to Khazana Jewellery in Bhimavaram for jewellery shopping.",
+  "Happy with my visit to Khazana Jewellery in Somavaram."
+];
+const parts = {
+  designs:  ["The collection of gold jewellery is wide, with both traditional and modern designs to choose from.",
+             "There are lots of lovely designs, from everyday pieces to festive and bridal sets."],
+  staff:    ["The staff were friendly and patient, and explained everything without rushing us.",
+             "The team was welcoming and helped us compare options calmly."],
+  purity:   ["The gold is BIS hallmarked, which gave us confidence in the purity.",
+             "Hallmarked gold and clear details on each piece made us feel assured."],
+  billing:  ["Billing was smooth and transparent, with a clear breakdown of the charges.",
+             "The pricing and billing were easy to understand."],
+  exchange: ["The lifetime exchange policy is a big plus for us.",
+             "Good to know about the exchange and buyback option for the future."],
+  wedding:  ["We shopped for a wedding here and found everything we needed in one place.",
+             "It was a convenient place for our wedding jewellery shopping."],
+  diamond:  ["The diamond collection has some beautiful, lightweight pieces for daily wear.",
+             "We also liked the diamond range, with elegant designs for different occasions."]
+};
+const closers = [
+  "Would happily recommend it to family and friends in Bhimavaram.",
+  "Will visit again for our next purchase.",
+  "Worth a visit if you are looking for jewellery in town."
+];
+const pick = a => a[Math.floor(Math.random()*a.length)];
+const chips = [...document.querySelectorAll(".chip")];
+const ta = document.getElementById("reviewText");
+
+function compose(){
+  const on = chips.filter(c => c.getAttribute("aria-pressed")==="true").map(c => c.dataset.k);
+  const body = on.map(k => pick(parts[k])).join(" ");
+  ta.value = [pick(openers), body, pick(closers)].filter(Boolean).join(" ");
+}
+chips.forEach(c => c.addEventListener("click", () => {
+  c.setAttribute("aria-pressed", c.getAttribute("aria-pressed")==="true" ? "false" : "true");
+  compose();
+}));
+document.getElementById("again").addEventListener("click", compose);
+compose();
+
+const toast = document.getElementById("toast");
+let tt;
+function say(msg){
+  toast.textContent = msg; toast.classList.add("show");
+  clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("show"), 3200);
+}
+async function copyText(text){
+  try{ await navigator.clipboard.writeText(text); return true; }
+  catch(e){
+    try{
+      ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+      const ok = document.execCommand("copy"); ta.blur(); return ok;
+    }catch(_){ return false; }
+  }
+}
+document.getElementById("copyGo").addEventListener("click", async () => {
+  const text = ta.value.trim();
+  if(!text){ say("Write or generate a review first"); return; }
+  // open first so the browser does not block the new tab, then copy
+  const w = window.open(REVIEW_URL, "_blank");
+  if(w) w.opener = null;
+  const ok = await copyText(text);
+  say(ok ? "Review copied. Paste it on Google and post." : "Could not copy. Long-press the text to copy it.");
+  if(!w) window.location.href = REVIEW_URL;
+});
+</script>
+</body>
+</html>
